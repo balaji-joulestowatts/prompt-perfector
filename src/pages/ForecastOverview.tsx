@@ -56,15 +56,15 @@ const ForecastOverview = () => (
     <div className="bg-card rounded-lg shadow-card p-5">
       <h3 className="text-[15px] font-semibold mb-4">Aggregate Demand Forecast — Next 90 Days</h3>
       <ResponsiveContainer width="100%" height={320}>
-        <AreaChart data={weeklyData}>
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-          <XAxis dataKey="week" tick={{ fontSize: 11 }} />
-          <YAxis tick={{ fontSize: 11 }} unit="K" />
-          <Tooltip contentStyle={{ fontSize: 12 }} />
-          <Legend />
-          <Area type="monotone" dataKey="bull" name="Bull Case" fill="#16A34A" fillOpacity={0.15} stroke="#16A34A" strokeDasharray="5 5" />
-          <Area type="monotone" dataKey="base" name="Base Case" fill="#0F52A0" fillOpacity={0.25} stroke="#0F52A0" strokeWidth={2} />
-          <Area type="monotone" dataKey="bear" name="Bear Case" fill="#DC2626" fillOpacity={0.15} stroke="#DC2626" strokeDasharray="5 5" />
+        <AreaChart data={weeklyData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+          <CartesianGrid vertical={false} stroke="#E2E8F0" />
+          <XAxis dataKey="week" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} dy={10} stroke="hsl(var(--muted-foreground))" />
+          <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} dx={-10} stroke="hsl(var(--muted-foreground))" unit="K" />
+          <Tooltip cursor={{ stroke: '#E2E8F0', strokeWidth: 2, strokeDasharray: '4 4' }} contentStyle={{ borderRadius: '6px', border: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', fontSize: 12, fontWeight: 500 }} />
+          <Legend iconType="circle" wrapperStyle={{ fontSize: '13px', paddingTop: '10px' }} />
+          <Area type="monotone" dataKey="bull" name="Bull Case" fill="#16A34A" fillOpacity={0.15} stroke="#16A34A" strokeDasharray="5 5" strokeWidth={2} activeDot={{ r: 5 }} />
+          <Area type="monotone" dataKey="base" name="Base Case" fill="#0F52A0" fillOpacity={0.25} stroke="#0F52A0" strokeWidth={3} activeDot={{ r: 6, strokeWidth: 0, fill: '#0F52A0' }} />
+          <Area type="monotone" dataKey="bear" name="Bear Case" fill="#DC2626" fillOpacity={0.15} stroke="#DC2626" strokeDasharray="5 5" strokeWidth={2} activeDot={{ r: 5 }} />
         </AreaChart>
       </ResponsiveContainer>
     </div>

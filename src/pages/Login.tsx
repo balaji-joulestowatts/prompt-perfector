@@ -21,8 +21,8 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="bg-card rounded-lg shadow-card p-8 w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl mx-auto mb-4">PF</div>
-          <h1 className="text-2xl font-bold text-foreground">PharmaForecast AI</h1>
+          <img src="/J2W_Logo 1.png" alt="JoulestoWatts Logo" className="h-14 w-auto object-contain mx-auto mb-4 p-1 bg-white rounded-lg" />
+          <h1 className="text-2xl font-bold text-foreground">JoulestoWatts</h1>
           <p className="text-sm text-muted-foreground mt-1">Demand Intelligence & Inventory Optimization</p>
         </div>
 

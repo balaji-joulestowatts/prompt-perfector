@@ -57,30 +57,31 @@ const Dashboard = () => {
 
       {/* Charts Row */}
       <div className="grid grid-cols-5 gap-4">
-        <div className="col-span-3 bg-card rounded-lg shadow-card p-5">
-          <h3 className="text-[15px] font-semibold mb-4">Demand Forecast vs. Actuals</h3>
+        <div className="col-span-3 bg-card rounded-lg shadow-card p-5 border border-border">
+          <h3 className="text-[15px] font-semibold mb-4 text-foreground">Demand Forecast vs. Actuals</h3>
           <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={demandData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="month" tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" />
-              <YAxis tick={{ fontSize: 11 }} stroke="hsl(var(--muted-foreground))" unit="K" />
-              <Tooltip contentStyle={{ fontSize: 12 }} />
-              <Line type="monotone" dataKey="forecast" stroke="hsl(var(--chart-1))" strokeWidth={2} name="Forecasted Demand" dot={{ r: 3 }} />
-              <Line type="monotone" dataKey="actual" stroke="hsl(var(--chart-2))" strokeWidth={2} strokeDasharray="5 5" name="Actual Demand" dot={{ r: 3 }} />
+            <LineChart data={demandData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+              <CartesianGrid vertical={false} stroke="#E2E8F0" />
+              <XAxis dataKey="month" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} dy={10} stroke="hsl(var(--muted-foreground))" />
+              <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} dx={-10} stroke="hsl(var(--muted-foreground))" unit="K" />
+              <Tooltip cursor={{ stroke: '#E2E8F0', strokeWidth: 2, strokeDasharray: '4 4' }} contentStyle={{ borderRadius: '6px', border: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', fontSize: 12, fontWeight: 500 }} />
+              <Line type="monotone" dataKey="forecast" stroke="#0F52A0" strokeWidth={3} name="Forecasted Demand" dot={{ r: 4, strokeWidth: 2, fill: '#fff' }} activeDot={{ r: 6, strokeWidth: 0, fill: '#0F52A0' }} />
+              <Line type="monotone" dataKey="actual" stroke="#00A896" strokeWidth={3} strokeDasharray="5 5" name="Actual Demand" dot={{ r: 4, strokeWidth: 2, fill: '#fff' }} activeDot={{ r: 6, strokeWidth: 0, fill: '#00A896' }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <div className="col-span-2 bg-card rounded-lg shadow-card p-5">
-          <h3 className="text-[15px] font-semibold mb-4">Inventory Health Distribution</h3>
+        <div className="col-span-2 bg-card rounded-lg shadow-card p-5 border border-border">
+          <h3 className="text-[15px] font-semibold mb-4 text-foreground">Inventory Health Distribution</h3>
           <ResponsiveContainer width="100%" height={280}>
-            <PieChart>
-              <Pie data={healthData} cx="50%" cy="50%" innerRadius={60} outerRadius={95} dataKey="value" nameKey="name" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`} labelLine={{ strokeWidth: 1 }}>
-                {healthData.map((d, i) => <Cell key={i} fill={d.color} />)}
+            <PieChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+              <Pie data={healthData} cx="50%" cy="50%" innerRadius={70} outerRadius={100} paddingAngle={4} dataKey="value" nameKey="name" 
+                   label={({ name, percent }) => `${name} ${(percent * 100).toFixed(1)}%`} labelLine={{ strokeWidth: 1, stroke: '#94A3B8' }}>
+                {healthData.map((d, i) => <Cell key={i} fill={d.color} stroke="none" />)}
               </Pie>
-              <Tooltip />
+              <Tooltip contentStyle={{ borderRadius: '6px', border: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', fontSize: 12, fontWeight: 500, padding: '8px 12px' }} itemStyle={{ fontWeight: 600 }} />
             </PieChart>
           </ResponsiveContainer>
-          <div className="text-center -mt-4 text-sm font-medium text-muted-foreground">1,284 SKUs Total</div>
+          <div className="text-center -mt-6 text-[13px] font-semibold text-foreground">1,284 SKUs Total</div>
         </div>
       </div>
 

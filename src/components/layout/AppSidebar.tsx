@@ -25,10 +25,10 @@ export const AppSidebar = () => {
     >
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 h-14 border-b border-white/10 shrink-0">
-        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">PF</div>
+        <img src="/J2W_Logo 1.png" alt="JoulestoWatts Logo" className="w-8 h-8 object-contain shrink-0 bg-white rounded-md p-0.5" />
         {!collapsed && (
           <div className="overflow-hidden">
-            <div className="text-sm font-bold text-white truncate">PharmaForecast AI</div>
+            <div className="text-sm font-bold text-white truncate">JoulestoWatts</div>
             <div className="text-[10px] text-sidebar-foreground/60 truncate">Demand Intelligence</div>
           </div>
         )}

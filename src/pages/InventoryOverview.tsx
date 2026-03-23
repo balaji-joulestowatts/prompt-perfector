@@ -65,27 +65,27 @@ const InventoryOverview = () => (
       <div className="bg-card rounded-lg shadow-card p-5">
         <h3 className="text-[15px] font-semibold mb-4">Inventory Value by Category (₹ Cr)</h3>
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={catValues} layout="vertical">
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-            <XAxis type="number" tick={{ fontSize: 11 }} />
-            <YAxis dataKey="category" type="category" tick={{ fontSize: 10 }} width={100} />
-            <Tooltip contentStyle={{ fontSize: 12 }} />
-            <Bar dataKey="value" fill="#0F52A0" />
+          <BarChart data={catValues} layout="vertical" margin={{ top: 0, right: 10, left: 10, bottom: 0 }}>
+            <CartesianGrid horizontal={false} stroke="#E2E8F0" />
+            <XAxis type="number" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} dy={10} stroke="hsl(var(--muted-foreground))" />
+            <YAxis dataKey="category" type="category" tick={{ fontSize: 10 }} width={100} tickLine={false} axisLine={false} dx={-10} stroke="hsl(var(--muted-foreground))" />
+            <Tooltip cursor={{ fill: 'rgba(0,0,0,0.03)' }} contentStyle={{ borderRadius: '6px', border: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', fontSize: 12, fontWeight: 500 }} />
+            <Bar dataKey="value" fill="#0F52A0" radius={[0, 4, 4, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
       <div className="bg-card rounded-lg shadow-card p-5">
         <h3 className="text-[15px] font-semibold mb-4">Stock Health by Location</h3>
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={locationData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-            <XAxis dataKey="name" tick={{ fontSize: 10 }} />
-            <YAxis tick={{ fontSize: 11 }} />
-            <Tooltip contentStyle={{ fontSize: 12 }} />
-            <Legend />
+          <BarChart data={locationData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+            <CartesianGrid vertical={false} stroke="#E2E8F0" />
+            <XAxis dataKey="name" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} dy={10} stroke="hsl(var(--muted-foreground))" />
+            <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} dx={-10} stroke="hsl(var(--muted-foreground))" />
+            <Tooltip cursor={{ fill: 'rgba(0,0,0,0.03)' }} contentStyle={{ borderRadius: '6px', border: '1px solid #E2E8F0', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', fontSize: 12, fontWeight: 500 }} />
+            <Legend iconType="circle" wrapperStyle={{ fontSize: '13px', paddingTop: '10px' }} />
             <Bar dataKey="healthy" name="Healthy" stackId="a" fill="#16A34A" />
             <Bar dataKey="low" name="Low Stock" stackId="a" fill="#DC2626" />
-            <Bar dataKey="overstock" name="Overstock" stackId="a" fill="#7C3AED" />
+            <Bar dataKey="overstock" name="Overstock" stackId="a" fill="#7C3AED" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
