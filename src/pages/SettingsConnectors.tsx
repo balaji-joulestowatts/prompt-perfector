@@ -1,30 +1,22 @@
-const integrations = [
+sconst integrations = [
   { name: 'SAP ERP (Core)', status: 'Connected', statusColor: 'bg-success', lastSync: '2 min ago', type: 'API' },
-  { name: 'Tally Prime (Accounts)', status: 'Connected', statusColor: 'bg-success', lastSync: '14 min ago', type: 'File Sync' },
-  { name: 'Busy Accounting', status: 'Degraded', statusColor: 'bg-warning', lastSync: '47 min ago', type: 'File Sync' },
-  { name: 'Zoho Books', status: 'Connected', statusColor: 'bg-success', lastSync: '8 min ago', type: 'API' },
+  { name: 'Veeva Vault QMS', status: 'Connected', statusColor: 'bg-success', lastSync: '14 min ago', type: 'API' },
+  { name: 'LabVantage (LIMS)', status: 'Degraded', statusColor: 'bg-warning', lastSync: '47 min ago', type: 'API' },
   { name: 'WMS — Manhattan Associates', status: 'Connected', statusColor: 'bg-success', lastSync: '5 min ago', type: 'API' },
   { name: 'Barcode Scanning (Zebra)', status: 'Connected', statusColor: 'bg-success', lastSync: 'Real-time', type: 'Device' },
   { name: 'WhatsApp Business API', status: 'Connected', statusColor: 'bg-success', lastSync: 'Live', type: 'API' },
-  { name: 'SendGrid (Email)', status: 'Connected', statusColor: 'bg-success', lastSync: 'Live', type: 'API' },
-  { name: 'Twilio (SMS Alerts)', status: 'Connected', statusColor: 'bg-success', lastSync: 'Live', type: 'API' },
 ];
 
 const databases = [
   { name: 'PostgreSQL (Primary DB)', host: 'db.pharmaforecast.in:5432', db: 'pf_production', status: 'Connected', extra: 'Pool size: 20' },
-  { name: 'MongoDB (Event Logs)', host: 'mongo.pharmaforecast.in:27017', db: 'pf_audit', status: 'Connected', extra: '' },
   { name: 'Redis (Cache & Queue)', host: 'redis.pharmaforecast.in:6379', db: '', status: 'Connected', extra: 'Memory: 2.1 GB / 8 GB' },
 ];
 
 const forecastTools = [
   { name: 'Facebook Prophet (Meta)', desc: 'Open-source time series forecasting', status: 'Active' },
-  { name: 'NeuralProphet', desc: 'Neural network-enhanced Prophet', status: 'Active' },
   { name: 'statsforecast (Nixtla)', desc: 'AutoARIMA, ETS, Theta — batch optimized', status: 'Active' },
-  { name: 'MLforecast (Nixtla)', desc: 'XGBoost/LightGBM for ML-based forecasting', status: 'Active' },
-  { name: 'Amazon Forecast (AWS)', desc: 'Managed ML forecasting service', status: 'Connect' },
-  { name: 'Google Cloud Vertex AI', desc: 'AutoML time series', status: 'Connect' },
-  { name: 'Azure Machine Learning', desc: 'Time series forecasting pipelines', status: 'Connect' },
-  { name: 'DataRobot', desc: 'Enterprise AutoML forecasting', status: 'Connect' },
+  { name: 'Relex Solutions', desc: 'Retail/pharma planning platform', status: 'Active' },
+  { name: 'Blue Yonder (JDA)', desc: 'Enterprise demand planning', status: 'Connect' },
 ];
 
 const SettingsConnectors = () => (
